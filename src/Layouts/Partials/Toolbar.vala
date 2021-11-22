@@ -28,8 +28,11 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
- public class ViewR.Layouts.Partials.Toolbar : Gtk.Grid {
-    public weak ViewR.Window window { get; construct; }
+ public class ViewR.Layouts.Partials.Toolbar : Gtk.Box {
+    public weak Window window { get; construct; }
+
+    private Widgets.ToolbarButton open_file;
+    private Widgets.ToolbarButton color_picker;
 
     public Toolbar (ViewR.Window window) {
         Object (
@@ -38,7 +41,16 @@
     }
 
     construct {
-        attach (new Gtk.Label ("This is the toolbar"), 0, 0, 1, 1);
-        show_all ();
+        orientation = Gtk.Orientation.VERTICAL;
+        spacing = 10;
+        valign = Gtk.Align.CENTER;
+        vexpand = true;
+
+        open_file = new Widgets.ToolbarButton ("Open File", "open.png");
+        color_picker = new Widgets.ToolbarButton ("Pick Color", "eyedropper.png");
+        
+
+        pack_start (open_file);
+        pack_start (color_picker);
     }
  }

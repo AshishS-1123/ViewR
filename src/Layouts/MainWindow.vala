@@ -45,6 +45,6 @@
         toolbar = new ViewR.Layouts.Partials.Toolbar (window);
 
         attach (toolbar, 0, 0, 1, 1);
-        attach (canvas, 0, 1, 1, 1);
+        attach (canvas, 1, 0, 1, 1);
     }
  }

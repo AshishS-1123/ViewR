@@ -6,5 +6,7 @@ src = files([
   'Layouts/Partials/Toolbar.vala',
 
   'Layouts/Canvas.vala',
-  'Layouts/MainWindow.vala'
+  'Layouts/MainWindow.vala',
+
+  'Widgets/ToolbarButton.vala'
 ])
