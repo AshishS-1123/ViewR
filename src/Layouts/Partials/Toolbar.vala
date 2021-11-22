@@ -28,7 +28,17 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
-public static int main (string[] args) {
-    ViewR.Application app = new ViewR.Application ();
-    return app.run (args);
-}
+ public class ViewR.Layouts.Partials.Toolbar : Gtk.Grid {
+    public weak ViewR.Window window { get; construct; }
+
+    public Toolbar (ViewR.Window window) {
+        Object (
+             window: window
+        );
+    }
+
+    construct {
+        attach (new Gtk.Label ("This is the toolbar"), 0, 0, 1, 1);
+        show_all ();
+    }
+ }

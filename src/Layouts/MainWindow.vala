@@ -28,7 +28,23 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
-public static int main (string[] args) {
-    ViewR.Application app = new ViewR.Application ();
-    return app.run (args);
-}
+ public class ViewR.Layouts.MainWindow : Gtk.Grid {
+    public weak ViewR.Window window { get; construct; }
+
+    public ViewR.Layouts.Canvas canvas;
+    public ViewR.Layouts.Partials.Toolbar toolbar;
+
+    public MainWindow (ViewR.Window window) {
+        Object (
+            window: window
+        );
+    }
+
+    construct {
+        canvas = new ViewR.Layouts.Canvas (window);
+        toolbar = new ViewR.Layouts.Partials.Toolbar (window);
+
+        attach (toolbar, 0, 0, 1, 1);
+        attach (canvas, 0, 1, 1, 1);
+    }
+ }

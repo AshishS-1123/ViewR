@@ -1,11 +1,10 @@
-executable(
-  meson.project_name(),
+src = files([
   'Main.vala',
   'Application.vala',
-  
   'Window.vala',
-  dependencies: [
-    dependency('gtk+-3.0')
-  ],
-  install: true
-)
+
+  'Layouts/Partials/Toolbar.vala',
+
+  'Layouts/Canvas.vala',
+  'Layouts/MainWindow.vala'
+])
