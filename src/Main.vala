@@ -1,4 +1,4 @@
 public static int main (string[] args) {
-    Application app = new Application ();
+    ViewR.Application app = new ViewR.Application ();
     return app.run (args);
   }

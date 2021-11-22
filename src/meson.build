@@ -3,7 +3,7 @@ executable(
   'Main.vala',
   'Application.vala',
   
-  'Widgets/Window.vala',
+  'Window.vala',
   dependencies: [
     dependency('gtk+-3.0')
   ],

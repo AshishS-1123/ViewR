@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <schemalist>
-  <schema path="/com/bsdadm/linux/vala-and-gtk-starter/" id="com.bsdadm.linux.vala-and-gtk-starter">
+  <schema path="/com/AshishS-1123/ViewR/" id="com.AshishS-1123.ViewR">
     <key name="pos-x" type="i">
       <default>320</default>
       <summary>The horizontal position of the window</summary>

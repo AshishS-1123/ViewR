@@ -1,4 +1,4 @@
-public class Vags.Window : Gtk.ApplicationWindow {
+public class ViewR.Window : Gtk.ApplicationWindow {
   public GLib.Settings settings;
 
   public Window (Gtk.Application app) {
@@ -8,7 +8,7 @@ public class Vags.Window : Gtk.ApplicationWindow {
   }
 
   construct {
-    set_title ("Vala and Gtk Starter");
+    set_title ("ViewR");
     set_border_width (10);
     /*
     We're going to use set_position during the first ever launch
@@ -18,7 +18,7 @@ public class Vags.Window : Gtk.ApplicationWindow {
     set_resizable (true);
     
     // Lets pull some settings from our gschema file
-    settings = new GLib.Settings ("com.bsdadm.linux.vala-and-gtk-starter");
+    settings = new GLib.Settings ("com.AshishS-1123.ViewR");
     
     if (settings.get_boolean ("first-run")) {
       settings.set_boolean ("first-run", false);

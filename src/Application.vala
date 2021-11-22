@@ -1,16 +1,14 @@
-public class Application : Gtk.Application {
-  
-  public Application () {
-    Object (
-      application_id: "com.bsdadm.linux.vala-and-gtk-starter",
-      flags: GLib.ApplicationFlags.FLAGS_NONE
-    );
-  }
+public class ViewR.Application : Gtk.Application {
+    public Application () {
+        Object (
+            application_id: "com.AshishS-1123.ViewR",
+            flags: GLib.ApplicationFlags.FLAGS_NONE
+        );
+    }
 
-  protected override void activate () {
-    Vags.Window window = new Vags.Window (this);
+    protected override void activate () {
+        ViewR.Window window = new ViewR.Window (this);
 
-    add_window (window);
-  }
-
+        add_window (window);
+    }
 }

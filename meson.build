@@ -1,4 +1,4 @@
-project('com.bsdadm.linux.vala-and-gtk-starter', 'vala', 'c')
+project('com.AshishS-1123.ViewR', 'vala', 'c')
 
 subdir('src')
 subdir('data')
