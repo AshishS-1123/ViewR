@@ -3,5 +3,7 @@
   <gresource prefix="/com/github/AshishS-1123/ViewR">
     <file alias="open.png">icons/open.png</file>
     <file alias="eyedropper.png">icons/eyedropper.png</file>
+
+    <file alias="canvas_image_temp.png">images/image_1.png</file>
   </gresource>
 </gresources>
