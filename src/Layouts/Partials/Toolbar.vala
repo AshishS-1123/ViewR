@@ -49,8 +49,20 @@
         open_file = new Widgets.ToolbarButton ("Open File", "open.png");
         color_picker = new Widgets.ToolbarButton ("Pick Color", "eyedropper.png");
         
+        open_file.clicked.connect (open_file_handler);
+        color_picker.clicked.connect (color_picker_handler);
 
         pack_start (open_file);
         pack_start (color_picker);
+    }
+
+    private void open_file_handler () {
+        // TODO
+        print("open file\n");
+    }
+
+    private void color_picker_handler () {
+        // TODO
+        print("color picker\n");
     }
  }

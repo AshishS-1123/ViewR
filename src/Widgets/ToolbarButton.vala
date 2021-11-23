@@ -32,6 +32,8 @@
     private Gtk.Button button;
     private Gtk.Label label;
 
+    public signal void clicked ();
+
     public ToolbarButton (string button_name, string icon_name) {
         button = new Gtk.Button ();
         button.can_focus = false;
@@ -42,6 +44,10 @@
         var image = new Gtk.Image.from_resource ("/com/github/AshishS-1123/ViewR/" + icon_name);
         image.icon_size = Gtk.IconSize.BUTTON;
         button.add (image);
+
+        button.clicked.connect (() => {
+            clicked ();
+        });
 
         attach (button, 0, 0, 1, 1);
         attach (label, 0, 1, 1, 1);
