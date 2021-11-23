@@ -31,6 +31,7 @@
 public class ViewR.Window : Gtk.ApplicationWindow {
     public GLib.Settings settings;
     public Layouts.MainWindow main_window;
+    public Services.EventBus event_bus;
 
     public Window (Gtk.Application app) {
         Object (
@@ -40,6 +41,7 @@ public class ViewR.Window : Gtk.ApplicationWindow {
 
     construct {
         main_window = new ViewR.Layouts.MainWindow (this);
+        event_bus = new Services.EventBus ();
 
         set_title ("ViewR");
         set_border_width (10);

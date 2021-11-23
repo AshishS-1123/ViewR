@@ -8,5 +8,7 @@ src = files([
   'Layouts/Canvas.vala',
   'Layouts/MainWindow.vala',
 
-  'Widgets/ToolbarButton.vala'
+  'Widgets/ToolbarButton.vala',
+
+  'Services/EventBus.vala'
 ])
