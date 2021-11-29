@@ -29,6 +29,7 @@
  */
 
  public class ViewR.Services.EventBus : Object {
-    public signal void open_file ();
-    public signal void launch_eyedropper ();
+   public signal void open_file ();
+   public signal void launch_eyedropper ();
+   public signal void open_image (File file);
  }
