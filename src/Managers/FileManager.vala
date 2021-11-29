@@ -47,6 +47,7 @@ public class ViewR.Managers.FileManager : Object {
     }
 
     private void launch_open_file_dialog () {
+        print("oppen file triggereed\n");
         // Initialize the dialog.
         dialog = new Gtk.FileChooserNative (
             "Choose image file", window, Gtk.FileChooserAction.OPEN, "Select", "Close");
