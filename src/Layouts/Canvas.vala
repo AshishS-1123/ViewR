@@ -28,17 +28,24 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
- public class ViewR.Layouts.Canvas : Gtk.Grid {
-    public weak ViewR.Window window { get; construct; }
+public class ViewR.Layouts.Canvas : Gtk.ScrolledWindow {
+    public weak Window window { get; construct; }
 
     public Canvas (ViewR.Window window) {
         Object (
-            window: window
+             window: window
         );
+
+        window.image_manager.image_loaded.connect (on_image_loaded);
     }
 
     construct {
-        attach (new Gtk.Label ("This is the canvas"), 0, 0, 1, 1);
+        hexpand = true;
+        vexpand = true;
+    }
+
+    private void on_image_loaded () {
+        add (window.image_manager.image);
         show_all ();
     }
 }
