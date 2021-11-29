@@ -32,7 +32,9 @@
     public weak Window window { get; construct; }
 
     private File file;
-    private Gdk.Pixbuf pixbuf;
+    public Gtk.Image image;
+
+    public signal void image_loaded ();
 
     public ImageManager (Window window) {
         Object (
@@ -44,15 +46,19 @@
 
     private void on_open_image (File file) {
         this.file = file;
+        var timer = new Timer ();
 
         create_pixbuf.begin ((obj, res) => {
             try {
-                pixbuf = create_pixbuf.end (res);
-                print("got pixbuf\n");
+                var pixbuf = create_pixbuf.end (res);
+                image = new Gtk.Image.from_pixbuf (pixbuf);
+
+                timer.stop ();
+                print("Read image in %f seconds.\n", timer.elapsed ());
+                image_loaded ();
             } catch (Error e) {
                 warning (e.message);
             }
-
         });
     }
 
@@ -66,7 +72,7 @@
         }
 
         try {
-            pixbuf = yield new Gdk.Pixbuf.from_stream_async (stream);
+            var pixbuf = yield new Gdk.Pixbuf.from_stream_async (stream);
             return pixbuf;
         } catch (Error e) {
             throw e;
