@@ -57,8 +57,8 @@
     }
 
     private void open_file_handler () {
-        // TODO
         print("open file\n");
+        window.event_bus.open_file ();
     }
 
     private void color_picker_handler () {
