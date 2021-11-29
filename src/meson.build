@@ -10,5 +10,8 @@ src = files([
 
   'Widgets/ToolbarButton.vala',
 
-  'Services/EventBus.vala'
+  'Services/EventBus.vala',
+
+  'Managers/FileManager.vala',
+  'Managers/ImageManager.vala'
 ])

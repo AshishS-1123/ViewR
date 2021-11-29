@@ -41,6 +41,8 @@
     }
 
     construct {
+        column_spacing = 10;
+
         canvas = new ViewR.Layouts.Canvas (window);
         toolbar = new ViewR.Layouts.Partials.Toolbar (window);
 

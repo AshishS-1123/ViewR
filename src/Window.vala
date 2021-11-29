@@ -33,6 +33,9 @@ public class ViewR.Window : Gtk.ApplicationWindow {
     public Layouts.MainWindow main_window;
     public Services.EventBus event_bus;
 
+    public Managers.FileManager file_manager;
+    public Managers.ImageManager image_manager;
+
     public Window (Gtk.Application app) {
         Object (
             application: app
@@ -40,8 +43,15 @@ public class ViewR.Window : Gtk.ApplicationWindow {
     }
 
     construct {
-        main_window = new ViewR.Layouts.MainWindow (this);
         event_bus = new Services.EventBus ();
+
+        file_manager = new Managers.FileManager (this);
+        image_manager = new Managers.ImageManager (this);
+        
+        main_window = new ViewR.Layouts.MainWindow (this);
+
+
+        //  file_manager = new Managers.FileManager (this);
 
         set_title ("ViewR");
         set_border_width (10);
