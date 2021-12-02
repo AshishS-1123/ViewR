@@ -33,6 +33,7 @@
 
     private File file;
     public Gtk.Image image;
+    private Gdk.Pixbuf original_pixbuf;
 
     public signal void image_loaded ();
 
@@ -42,6 +43,7 @@
         );
 
         window.event_bus.open_image.connect (on_open_image);
+        window.event_bus.zoom.connect (on_zoom);
     }
 
     private void on_open_image (File file) {
@@ -50,11 +52,14 @@
 
         create_pixbuf.begin ((obj, res) => {
             try {
-                var pixbuf = create_pixbuf.end (res);
-                image = new Gtk.Image.from_pixbuf (pixbuf);
+                // Read the image from given file.
+                original_pixbuf = create_pixbuf.end (res);
+                image = new Gtk.Image.from_pixbuf (original_pixbuf);
 
                 timer.stop ();
                 print("Read image in %f seconds.\n", timer.elapsed ());
+
+                zoom_to_fit ();
                 image_loaded ();
             } catch (Error e) {
                 warning (e.message);
@@ -62,7 +67,7 @@
         });
     }
 
-    public async Gdk.Pixbuf create_pixbuf () throws Error {
+    private async Gdk.Pixbuf create_pixbuf () throws Error {
         FileInputStream stream;
 
         try {
@@ -77,5 +82,13 @@
         } catch (Error e) {
             throw e;
         }
+    }
+
+    private void on_zoom (double scale) {
+
+    }
+
+    private void zoom_to_fit () {
+        
     }
  }
