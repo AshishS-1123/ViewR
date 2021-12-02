@@ -36,21 +36,21 @@ public class ViewR.Managers.EventManager : Object {
     public bool key_press_event (Gdk.EventKey event) {
 
     }
-    
+
     public bool key_release_event (Gdk.EventKey event) {
 
     }
-    
+
     public bool button_press_event (Gdk.EventButton event) {
 
     }
-    
+
     public bool button_release_event (Gdk.EventButton vent) {
 
     }
-    
+
     public bool motion_notify_event (Gdk.EventMotion event) {
 
     }
-    
+
 }

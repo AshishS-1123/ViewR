@@ -28,7 +28,7 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
- public class ViewR.Layouts.MainWindow : Gtk.Grid {
+public class ViewR.Layouts.MainWindow : Gtk.Grid {
     public weak ViewR.Window window { get; construct; }
 
     public ViewR.Layouts.Canvas canvas;
@@ -49,4 +49,4 @@
         attach (toolbar, 0, 0, 1, 1);
         attach (canvas, 1, 0, 1, 1);
     }
- }
+}

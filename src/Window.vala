@@ -49,7 +49,7 @@ public class ViewR.Window : Gtk.ApplicationWindow {
         file_manager = new Managers.FileManager (this);
         image_manager = new Managers.ImageManager (this);
         event_manager = new Managers.EventManager (this);
-        
+
         main_window = new ViewR.Layouts.MainWindow (this);
 
         set_title ("ViewR");
@@ -70,9 +70,9 @@ public class ViewR.Window : Gtk.ApplicationWindow {
             set_position (Gtk.WindowPosition.CENTER);
         } else {
             // Let's move the window to the last position saved in gsettings
-            move(settings.get_int("pos-x"), settings.get_int("pos-y"));
+            move (settings.get_int ("pos-x"), settings.get_int ("pos-y"));
             // Let's resize the window to the last size saved in gsettings
-            resize(settings.get_int("window-width"), settings.get_int("window-height"));
+            resize (settings.get_int ("window-width"), settings.get_int ("window-height"));
         }
 
         delete_event.connect (e => {

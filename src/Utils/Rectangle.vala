@@ -28,7 +28,7 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
- public struct ViewR.Utils.Rectangle {
+public struct ViewR.Utils.Rectangle {
     public double x;
     public double y;
     public double width;
@@ -39,7 +39,7 @@
             return x + width / 2.0;
         }
     }
-    
+
     public double center_y {
         get {
             return y + height / 2.0;
@@ -63,4 +63,4 @@
         width = right - left;
         height = bottom - top;
     }
- }
+}

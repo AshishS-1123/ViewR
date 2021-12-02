@@ -28,7 +28,7 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
- public class ViewR.Layouts.Partials.Toolbar : Gtk.Box {
+public class ViewR.Layouts.Partials.Toolbar : Gtk.Box {
     public weak Window window { get; construct; }
 
     private Widgets.ToolbarButton open_file;
@@ -48,7 +48,7 @@
 
         open_file = new Widgets.ToolbarButton ("Open File", "open.png");
         color_picker = new Widgets.ToolbarButton ("Pick Color", "eyedropper.png");
-        
+
         open_file.clicked.connect (open_file_handler);
         color_picker.clicked.connect (color_picker_handler);
 
@@ -57,12 +57,10 @@
     }
 
     private void open_file_handler () {
-        print("open file\n");
         window.event_bus.open_file ();
     }
 
     private void color_picker_handler () {
         // TODO
-        print("color picker\n");
     }
- }
+}

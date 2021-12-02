@@ -28,10 +28,10 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
- public class ViewR.Services.EventBus : Object {
+public class ViewR.Services.EventBus : Object {
   public signal void open_file ();
   public signal void launch_eyedropper ();
   public signal void open_image (File file);
 
   public signal void zoom (double scale);
- }
+}

@@ -28,7 +28,7 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
- public class ViewR.Widgets.ToolbarButton : Gtk.Grid {
+public class ViewR.Widgets.ToolbarButton : Gtk.Grid {
     private Gtk.Button button;
     private Gtk.Label label;
 
@@ -52,4 +52,4 @@
         attach (button, 0, 0, 1, 1);
         attach (label, 0, 1, 1, 1);
     }
- }
+}

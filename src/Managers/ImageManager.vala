@@ -28,7 +28,7 @@
  * Authored by: Ashish Shevale <shevaleashish@gmail.com>
  */
 
- public class ViewR.Managers.ImageManager : Object {
+public class ViewR.Managers.ImageManager : Object {
     public weak Window window { get; construct; }
 
     private File file;
@@ -57,7 +57,7 @@
                 image = new Gtk.Image.from_pixbuf (original_pixbuf);
 
                 timer.stop ();
-                print("Read image in %f seconds.\n", timer.elapsed ());
+                print ("Read image in %f seconds.\n", timer.elapsed ());
 
                 zoom_to_fit ();
                 image_loaded ();
@@ -89,6 +89,6 @@
     }
 
     private void zoom_to_fit () {
-        
+
     }
- }
+}
