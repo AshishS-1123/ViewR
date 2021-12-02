@@ -30,10 +30,16 @@
 
 public class ViewR.Managers.ImageManager : Object {
     public weak Window window { get; construct; }
+    public Layouts.Canvas canvas;
 
     private File file;
     public Gtk.Image image;
     private Gdk.Pixbuf original_pixbuf;
+
+    public double scale;
+
+    private const double ZOOM_MAX_THRESH = 3.0;
+    private const double ZOOM_MIN_THRESH = -3.0;
 
     public signal void image_loaded ();
 
@@ -42,8 +48,14 @@ public class ViewR.Managers.ImageManager : Object {
             window: window
         );
 
+        scale = 1;
+
         window.event_bus.open_image.connect (on_open_image);
         window.event_bus.zoom.connect (on_zoom);
+
+        if (window != null && window.main_window != null && window.main_window.canvas != null) {
+            canvas = window.main_window.canvas;
+        }
     }
 
     private void on_open_image (File file) {
@@ -65,6 +77,10 @@ public class ViewR.Managers.ImageManager : Object {
                 warning (e.message);
             }
         });
+
+        if (window != null && window.main_window != null && window.main_window.canvas != null) {
+            canvas = window.main_window.canvas;
+        }
     }
 
     private async Gdk.Pixbuf create_pixbuf () throws Error {
@@ -84,8 +100,31 @@ public class ViewR.Managers.ImageManager : Object {
         }
     }
 
-    private void on_zoom (double scale) {
+    private void on_zoom (double new_scale) {
+        if (new_scale > ZOOM_MAX_THRESH || new_scale < ZOOM_MIN_THRESH) {
+            return;
+        }
 
+        int new_width = (int) (original_pixbuf.width * new_scale);
+        int new_height = (int) (original_pixbuf.height * new_scale);
+
+        var scaled_pix = original_pixbuf.scale_simple (new_width, new_height, Gdk.InterpType.BILINEAR);
+        image.pixbuf = scaled_pix;
+
+        Gtk.Allocation allocation;
+        canvas.get_allocation (out allocation);
+        double width = allocation.width;
+        double height = allocation.height;
+
+        canvas.vadjustment.set_value (
+            (canvas.vadjustment.value + width / 2.0) + (new_scale / scale) - width / 2.0
+        );
+
+        canvas.hadjustment.set_value (
+            (canvas.hadjustment.value + height / 2.0) + (new_scale / scale) - height / 2.0
+        );
+
+        scale = new_scale;
     }
 
     private void zoom_to_fit () {

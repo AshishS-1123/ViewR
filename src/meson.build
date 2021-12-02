@@ -14,6 +14,7 @@ src = files([
 
   'Managers/FileManager.vala',
   'Managers/ImageManager.vala',
+  'Managers/EventManager.vala',
 
   'Utils/Rectangle.vala'
 ])

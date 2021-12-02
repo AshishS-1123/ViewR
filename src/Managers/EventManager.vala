@@ -29,28 +29,46 @@
  */
 
 public class ViewR.Managers.EventManager : Object {
-    public EventManager () {
+    public weak ViewR.Window window { get; construct; }
 
+    public EventManager (ViewR.Window window) {
+        Object (
+            window: window
+        );
     }
 
     public bool key_press_event (Gdk.EventKey event) {
+        uint uppercase_keyval = Gdk.keyval_to_upper (event.keyval);
 
+        if (uppercase_keyval == Gdk.Key.A) {
+            // Zoom in
+            double scale = window.image_manager.scale + 0.1;
+            window.event_bus.zoom (scale);
+            return true;
+        } else if (uppercase_keyval == Gdk.Key.S) {
+            // Zoom out
+            double scale = window.image_manager.scale - 0.1;
+            window.event_bus.zoom (scale);
+            return true;
+        }
+
+        return false;
     }
 
     public bool key_release_event (Gdk.EventKey event) {
-
+        return true;
     }
 
     public bool button_press_event (Gdk.EventButton event) {
-
+        return true;
     }
 
     public bool button_release_event (Gdk.EventButton vent) {
-
+        return true;
     }
 
     public bool motion_notify_event (Gdk.EventMotion event) {
-
+        return true;
     }
 
 }

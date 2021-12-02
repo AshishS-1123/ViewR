@@ -50,7 +50,6 @@ public class ViewR.Layouts.Canvas : Gtk.ScrolledWindow {
         button_press_event.connect (window.event_manager.button_press_event);
         button_release_event.connect (window.event_manager.button_release_event);
         motion_notify_event.connect (window.event_manager.motion_notify_event);
-
     }
 
     private void on_image_loaded () {
