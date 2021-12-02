@@ -42,6 +42,15 @@ public class ViewR.Layouts.Canvas : Gtk.ScrolledWindow {
     construct {
         hexpand = true;
         vexpand = true;
+        
+        // Direct all events to the event manager.
+        key_press_event.connect (window.event_manager.key_press_event);
+        key_release_event.connect (window.event_manager.key_release_event);
+
+        button_press_event.connect (window.event_manager.button_press_event);
+        button_release_event.connect (window.event_manager.button_release_event);
+        motion_notify_event.connect (window.event_manager.motion_notify_event);
+        
     }
 
     private void on_image_loaded () {
