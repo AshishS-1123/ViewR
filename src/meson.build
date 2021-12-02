@@ -13,5 +13,7 @@ src = files([
   'Services/EventBus.vala',
 
   'Managers/FileManager.vala',
-  'Managers/ImageManager.vala'
+  'Managers/ImageManager.vala',
+
+  'Utils/Rectangle.vala'
 ])
